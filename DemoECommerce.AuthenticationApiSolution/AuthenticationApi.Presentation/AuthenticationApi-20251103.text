@@ -1,0 +1,12 @@
+2025-11-03 17:04:27.279 -05:00 [INF] Failed to read parameter "LoginDTO loginDTO" from the request body as JSON.
+2025-11-03 17:04:27.314 -05:00 [WRN] Failed to read parameter "LoginDTO loginDTO" from the request body as JSON.
+2025-11-03 17:09:54.376 -05:00 [INF] Failed to read parameter "LoginDTO loginDTO" from the request body as JSON.
+2025-11-03 17:09:54.377 -05:00 [WRN] Failed to read parameter "LoginDTO loginDTO" from the request body as JSON.
+2025-11-03 17:42:25.215 -05:00 [INF] Endpoint HTTP: GET /api/authentication/user/{userID} => GetUser contains authorization metadata, but a middleware was not found that supports authorization.
+Configure your application startup by adding app.UseAuthorization() in the application startup code. If there are calls to app.UseRouting() and app.UseEndpoints(...), the call to app.UseAuthorization() must go between them.
+2025-11-03 17:42:25.219 -05:00 [WRN] Endpoint HTTP: GET /api/authentication/user/{userID} => GetUser contains authorization metadata, but a middleware was not found that supports authorization.
+Configure your application startup by adding app.UseAuthorization() in the application startup code. If there are calls to app.UseRouting() and app.UseEndpoints(...), the call to app.UseAuthorization() must go between them.
+2025-11-03 17:43:18.985 -05:00 [INF] Endpoint HTTP: GET /api/authentication/user/{userID} => GetUser contains authorization metadata, but a middleware was not found that supports authorization.
+Configure your application startup by adding app.UseAuthorization() in the application startup code. If there are calls to app.UseRouting() and app.UseEndpoints(...), the call to app.UseAuthorization() must go between them.
+2025-11-03 17:43:18.987 -05:00 [WRN] Endpoint HTTP: GET /api/authentication/user/{userID} => GetUser contains authorization metadata, but a middleware was not found that supports authorization.
+Configure your application startup by adding app.UseAuthorization() in the application startup code. If there are calls to app.UseRouting() and app.UseEndpoints(...), the call to app.UseAuthorization() must go between them.

@@ -1,0 +1,5 @@
+2025-11-05 01:05:28.085 -05:00 [WRN] Retrying 0 time(s) due to Outcome: The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2025-11-05 01:42:56.634 -05:00 [WRN] Retrying 0 time(s) due to Outcome: The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2025-11-05 02:56:22.883 -05:00 [WRN] Retrying 0 time(s) due to Outcome: The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2025-11-05 03:48:49.499 -05:00 [INF] Unable to resolve service for type 'Microsoft.AspNetCore.Http.IHttpContextAccessor' while attempting to activate 'OrderApi.Application.Services.Orderservice'.
+2025-11-05 03:48:49.529 -05:00 [WRN] Unable to resolve service for type 'Microsoft.AspNetCore.Http.IHttpContextAccessor' while attempting to activate 'OrderApi.Application.Services.Orderservice'.

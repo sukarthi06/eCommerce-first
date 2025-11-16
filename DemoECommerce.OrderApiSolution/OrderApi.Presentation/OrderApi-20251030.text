@@ -1,0 +1,15 @@
+2025-10-30 16:12:37.597 -04:00 [INF] Invalid object name 'Orders'.
+2025-10-30 16:12:37.630 -04:00 [WRN] Invalid object name 'Orders'.
+2025-10-30 16:12:37.635 -04:00 [INF] An error occurred while retrieving orders.
+2025-10-30 16:12:37.636 -04:00 [WRN] An error occurred while retrieving orders.
+2025-10-30 16:44:26.346 -04:00 [INF] Expected a supported JSON media type but got "orderGrouplication/json".
+2025-10-30 16:44:26.379 -04:00 [WRN] Expected a supported JSON media type but got "orderGrouplication/json".
+2025-10-30 16:47:40.551 -04:00 [INF] Expected a supported JSON media type but got "orderGrouplication/json".
+2025-10-30 16:47:40.553 -04:00 [WRN] Expected a supported JSON media type but got "orderGrouplication/json".
+2025-10-30 16:48:51.049 -04:00 [INF] Expected a supported JSON media type but got "orderGrouplication/json".
+2025-10-30 16:48:51.084 -04:00 [WRN] Expected a supported JSON media type but got "orderGrouplication/json".
+2025-10-30 16:56:09.426 -04:00 [WRN] Retrying 0 time(s) due to Outcome: The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2025-10-30 16:56:10.896 -04:00 [WRN] Retrying 1 time(s) due to Outcome: The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2025-10-30 16:56:12.294 -04:00 [WRN] Retrying 2 time(s) due to Outcome: The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2025-10-30 16:56:13.943 -04:00 [INF] The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
+2025-10-30 16:56:13.947 -04:00 [WRN] The request was canceled due to the configured HttpClient.Timeout of 1 seconds elapsing.
