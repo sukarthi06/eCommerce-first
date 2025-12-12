@@ -1,6 +1,8 @@
 {
   "Routes": [
-    // Authentication Service Route
+    // -----------------------------
+    // Authentication Service (catch-all)
+    // -----------------------------
     {
       "DownstreamPathTemplate": "/api/authentication/{everything}",
       "DownstreamScheme": "https",
@@ -19,18 +21,19 @@
         "Limit": 3,
         "PeriodTimespan": 10
       },
-      "AddHeadersToRequest": {
-        "Authorization": "{Authorization}"
-      }
+      "AddHeadersToRequest": { "Authorization": "{Authorization}" }
     },
-    // Order Service Route for Get
+    // -----------------------------
+    // Orders Service
+    // -----------------------------
+    // GET routes (with caching)
     {
       "DownstreamPathTemplate": "/api/orders/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7248
+          "Port": 5135
         }
       ],
       "UpstreamPathTemplate": "/api/orders/{everything}",
@@ -44,18 +47,16 @@
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       },
-      "AddHeadersToRequest": {
-        "Authorization": "{Authorization}"
-      }
+      "AddHeadersToRequest": { "Authorization": "{Authorization}" }
     },
-    // Order Service Route for Non-GET without Caching
+    // POST/PUT/DELETE routes (no caching)
     {
       "DownstreamPathTemplate": "/api/orders/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7248
+          "Port": 5135
         }
       ],
       "UpstreamPathTemplate": "/api/orders/{everything}",
@@ -65,14 +66,17 @@
         "AllowedScopes": []
       }
     },
-    // Product Service Route for Get with Caching and no Authentication
+    // -----------------------------
+    // Product Service
+    // -----------------------------
+    // GET /api/product
     {
       "DownstreamPathTemplate": "/api/product",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7189
+          "Port": 5105
         }
       ],
       "UpstreamPathTemplate": "/api/product",
@@ -82,18 +86,16 @@
         "Region": "default",
         "Header": "eCommerce-Caching-Control"
       },
-      "AddHeadersToRequest": {
-        "Authorization": "{Authorization}"
-      }
+      "AddHeadersToRequest": { "Authorization": "{Authorization}" }
     },
-    // Product Service by ID Route for Get with Caching and no Authentication
+    // GET /api/product/{id}
     {
       "DownstreamPathTemplate": "/api/product/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7189
+          "Port": 5105
         }
       ],
       "UpstreamPathTemplate": "/api/product/{id}",
@@ -103,18 +105,16 @@
         "Region": "default",
         "Header": "eCommerce-Caching-Control"
       },
-      "AddHeadersToRequest": {
-        "Authorization": "{Authorization}"
-      }
+      "AddHeadersToRequest": { "Authorization": "{Authorization}" }
     },
-    // Product Service Route for Non-GET without Caching
+    // POST/PUT/DELETE /api/product/{everything} (catch-all non-GET)
     {
       "DownstreamPathTemplate": "/api/product/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7189
+          "Port": 5105
         }
       ],
       "UpstreamPathTemplate": "/api/product/{everything}",
@@ -123,6 +123,41 @@
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
+    }
+  ],
+  // -----------------------------
+  // Swagger configuration
+  // -----------------------------
+  "SwaggerEndPoints": [
+    {
+      "Key": "auth",
+      "Config": [
+        {
+          "Name": "Authentication API",
+          "Version": "v1",
+          "Url": "https://localhost:7102/openapi/v1.json"
+        }
+      ]
+    },
+    {
+      "Key": "product",
+      "Config": [
+        {
+          "Name": "Product API",
+          "Version": "v1",
+          "Url": "http://localhost:5105/openapi/v1.json"
+        }
+      ]
+    },
+    {
+      "Key": "order",
+      "Config": [
+        {
+          "Name": "Order API",
+          "Version": "v1",
+          "Url": "http://localhost:5135/openapi/v1.json"
+        }
+      ]
     }
   ],
   "GlobalConfiguration": {

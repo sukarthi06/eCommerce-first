@@ -13,53 +13,62 @@ public static class OrderServices
     public static void MapOrderServicesEndpoints(this WebApplication app)
     {   
         var orderGroup = app.MapGroup("/api/orders")
-            .WithTags("Order Service Endpoints");
+            .WithTags("Order Service Endpoints")
+            .WithOpenApi()
+            .AllowAnonymous();
 
         orderGroup.MapGet("", GetOrdersAsync)
             .WithSummary("Get All Orders")
             .WithDescription("Retrieves all orders.")
             .Produces<IEnumerable<OrderDTO>>(StatusCodes.Status200OK)
-            .Produces(StatusCodes.Status404NotFound);
+            .Produces(StatusCodes.Status404NotFound)
+            .WithOpenApi();
 
         orderGroup.MapGet("/{orderId:int}", GetOrderAsync)
             .WithSummary("Get Order by Id")
             .WithDescription("Retrieves an order based on the provided Order Id.")
             .Produces<OrderDTO>(StatusCodes.Status200OK)
-            .Produces(StatusCodes.Status404NotFound);
+            .Produces(StatusCodes.Status404NotFound)
+            .WithOpenApi();
 
         orderGroup.MapPost("", CreateOrderAsync)
             .WithSummary("Create a New Order")
             .WithDescription("Creates a new order with the provided order details.")
             .Accepts<OrderDTO>("application/json")
             .Produces<Response>(StatusCodes.Status200OK)
-            .Produces<Response>(StatusCodes.Status400BadRequest);
+            .Produces<Response>(StatusCodes.Status400BadRequest)
+            .WithOpenApi();
 
         orderGroup.MapPut("", UpdateOrderAsync)
             .WithSummary("Update an Existing Order")
             .WithDescription("Updates an existing order with the provided order details.")
             .Accepts<OrderDTO>("application/json")
             .Produces<Response>(StatusCodes.Status200OK)
-            .Produces<Response>(StatusCodes.Status400BadRequest);
+            .Produces<Response>(StatusCodes.Status400BadRequest)
+            .WithOpenApi();
 
         orderGroup.MapPost("/delete", DeleteOrderAsync)
             .WithSummary("Delete an Existing Order")
             .WithDescription("Deletes an existing order with the provided order details.")
             .Accepts<OrderDTO>("application/json")
             .Produces<Response>(StatusCodes.Status200OK)
-            .Produces<Response>(StatusCodes.Status400BadRequest);
+            .Produces<Response>(StatusCodes.Status400BadRequest)
+            .WithOpenApi();
 
         orderGroup.MapGet("/details/{orderId:int}", GetOrderDetailsByIdAsync)
             .WithSummary("Get Order Details by Id")
             .WithDescription("Retrieves detailed information about an order based on the provided Order Id.")
             .Produces<OrderDetailsDTO>(StatusCodes.Status200OK)
-            .Produces(StatusCodes.Status404NotFound);
+            .Produces(StatusCodes.Status404NotFound)
+            .WithOpenApi();
 
         orderGroup.MapGet("/client/{clientId:int}", GetOrdersByClientIdAsync)
             .WithName("GetOrdersByClientId")
             .WithSummary("Get Orders by Client Id")
             .WithDescription("Retrieves all orders associated with the provided Client Id.")
             .Produces<IEnumerable<OrderDTO>>(StatusCodes.Status200OK)
-            .Produces(StatusCodes.Status404NotFound);
+            .Produces(StatusCodes.Status404NotFound)
+            .WithOpenApi();
 
     }
 

@@ -11,27 +11,31 @@ namespace AuthenticationApi.Presentation.Endpoints
         public static void MapAuthenticationEndpoints(this WebApplication app) 
         {
             var groupAuth = app.MapGroup("/api/authentication")
-                .WithTags("Authentication Services");
+                .WithTags("Authentication Services")
+                .WithOpenApi();
 
             groupAuth.MapPost("/register", Register)
                 .WithName("Register")
                 .WithDescription("Registers a new user in the system.")
                 .Accepts<AppUserDTO>("application/json")
                 .Produces<Response>(StatusCodes.Status200OK)
-                .Produces<Response>(StatusCodes.Status400BadRequest);
+                .Produces<Response>(StatusCodes.Status400BadRequest)
+                .WithOpenApi();
 
             groupAuth.MapPost("/login", Login)
                 .WithName("Login")
                 .WithDescription("Logs in a user and returns an authentication token.")
                 .Accepts<LoginDTO>("application/json")
                 .Produces<Response>(StatusCodes.Status200OK)
-                .Produces<Response>(StatusCodes.Status400BadRequest);
+                .Produces<Response>(StatusCodes.Status400BadRequest)
+                .WithOpenApi();
 
             groupAuth.MapGet("/user/{userID}", GetUser)
                 .WithName("GetUser")
                 .WithDescription("Retrieves user information based on the provided user ID.")
                 .Produces<GetUserDTO>(StatusCodes.Status200OK)
-                .Produces(StatusCodes.Status404NotFound);
+                .Produces(StatusCodes.Status404NotFound)
+                .WithOpenApi();
         }
         [Authorize]
         private static async Task<IResult> Register(IUser userService, AppUserDTO appUserDTO) 
