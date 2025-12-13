@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.5.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>1fc6695e-e1a7-459e-ace5-9d073cf0ee6b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.0" />
+    <PackageReference Include="Aspire.Hosting.SqlServer" Version="9.5.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DemoECommerce.ApiGatewaySolution\ApiGateway.Presentation\ApiGateway.Presentation.csproj" />
+    <ProjectReference Include="..\..\DemoECommerce.AuthenticationApiSolution\AuthenticationApi.Infrastructure\AuthenticationApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\DemoECommerce.AuthenticationApiSolution\AuthenticationApi.Presentation\AuthenticationApi.Presentation.csproj" />
+    <ProjectReference Include="..\..\DemoECommerce.OrderApiSolution\OrderApi.Infrastructure\OrderApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\DemoECommerce.OrderApiSolution\OrderApi.Presentation\OrderApi.Presentation.csproj" />
+    <ProjectReference Include="..\..\DemoECommerce.ProductApiSolution\ProductApi.Infrastructure\ProductApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\DemoECommerce.ProductApiSolution\ProductApi.Presentation\ProductApi.Presentation.csproj" />
+    <ProjectReference Include="..\DemoECommerce.DbMigrator.SQL\DemoECommerce.DbMigrator.SQL.csproj" />
+  </ItemGroup>
+
+</Project>

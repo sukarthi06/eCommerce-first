@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DemoECommerce.AppHostAspireSolution\DemoECommerce.AppHostAspireSolution.ServiceDefaults\DemoECommerce.AppHostAspireSolution.ServiceDefaults.csproj" />
     <ProjectReference Include="..\..\DemoECommerce.SahredLibrarySolution\eCommerce.SharedLibrary\eCommerce.SharedLibrary.csproj" />
   </ItemGroup>
 

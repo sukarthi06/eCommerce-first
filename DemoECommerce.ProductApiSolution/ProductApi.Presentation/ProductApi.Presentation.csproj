@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DemoECommerce.AppHostAspireSolution\DemoECommerce.AppHostAspireSolution.ServiceDefaults\DemoECommerce.AppHostAspireSolution.ServiceDefaults.csproj" />
     <ProjectReference Include="..\ProductApi.Infrastructure\ProductApi.Infrastructure.csproj" />
   </ItemGroup>
 

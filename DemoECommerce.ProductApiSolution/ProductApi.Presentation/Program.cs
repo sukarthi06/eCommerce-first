@@ -3,6 +3,8 @@ using ProductApi.Presentation.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -15,6 +17,8 @@ builder.Services.AddAuthorization();
 builder.Services.AddInfrastructureService(builder.Configuration);
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 app.UseInfrastructurePolicies();
 

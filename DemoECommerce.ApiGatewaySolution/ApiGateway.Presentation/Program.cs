@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 
 //if (builder.Environment.IsDevelopment())
@@ -40,6 +42,8 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 app.MapWhen(
     ctx => ctx.Request.Path.Value!
