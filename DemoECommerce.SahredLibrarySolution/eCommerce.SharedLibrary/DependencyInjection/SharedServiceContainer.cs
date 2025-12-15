@@ -19,14 +19,22 @@ public static class SharedServiceContainer
             {
                 throw new InvalidOperationException("Connection string 'eCommerceConnection' not found.");
             }
-            options.UseSqlServer(connectionString, sqlOptions =>
+            options.UseNpgsql(connectionString, npgsqlOptionsAction =>
             {
-                //sqlOptions.MigrationsAssembly(typeof(TContext).Assembly.FullName);
-                sqlOptions.EnableRetryOnFailure(
+                npgsqlOptionsAction.EnableRetryOnFailure(
                     maxRetryCount: 5,
                     maxRetryDelay: TimeSpan.FromSeconds(30),
-                    errorNumbersToAdd: null);
+                    errorCodesToAdd: null);
             });
+            // For SQL Server, uncomment the following lines
+            //options.UseSqlServer(connectionString, sqlOptions =>
+            //{
+            //    //sqlOptions.MigrationsAssembly(typeof(TContext).Assembly.FullName);
+            //    sqlOptions.EnableRetryOnFailure(
+            //        maxRetryCount: 5,
+            //        maxRetryDelay: TimeSpan.FromSeconds(30),
+            //        errorNumbersToAdd: null);
+            //});
         });
         // Add other shared services here as needed
         

@@ -15,4 +15,8 @@
     <ProjectReference Include="..\AuthenticationApi.Domain\AuthenticationApi.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
 </Project>

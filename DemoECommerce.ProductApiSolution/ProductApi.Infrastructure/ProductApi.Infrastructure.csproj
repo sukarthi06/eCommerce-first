@@ -10,4 +10,8 @@
     <ProjectReference Include="..\ProductApi.Application\ProductApi.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
 </Project>

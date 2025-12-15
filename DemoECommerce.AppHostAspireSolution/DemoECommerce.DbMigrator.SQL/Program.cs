@@ -15,13 +15,13 @@ var host = Host.CreateDefaultBuilder(args)
         var connStr = config.GetConnectionString("eCommerceConnection");
 
         services.AddDbContext<ProductDbContext>(options =>
-            options.UseSqlServer(connStr));
+            options.UseNpgsql(connStr));
 
         services.AddDbContext<OrderDbContext>(options =>
-            options.UseSqlServer(connStr));
+            options.UseNpgsql(connStr));
 
         services.AddDbContext<AuthenticationDbContext>(options =>
-            options.UseSqlServer(connStr));
+            options.UseNpgsql(connStr));
     })
     .Build();
 

@@ -1,12 +1,17 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 // SQL Server resource
-var sql = builder.AddSqlServer("sqlserver")
+//var sql = builder.AddSqlServer("sqlserver")
+//            .WithDataVolume()
+//            .WithLifetime(ContainerLifetime.Persistent);
+
+// PostgreSQL resource
+var postgres = builder.AddPostgres("postgres")
             .WithDataVolume()
             .WithLifetime(ContainerLifetime.Persistent);
 
 // Database
-var ecommerceDb = sql.AddDatabase("eCommerceConnection");
+var ecommerceDb = postgres.AddDatabase("eCommerceConnection");
 
 builder.AddProject<Projects.DemoECommerce_DbMigrator_SQL>("demoecommerce-dbmigrator-sql")
     .WithReference(ecommerceDb)
